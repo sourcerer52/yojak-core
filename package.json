@@ -3,6 +3,11 @@
   "description": "",
   "version": "0.0.0",
   "homepage": "",
+  "repository": {
+    "type": "github",
+    "url": "https://github.com/aishwaryasharma96/yojak-core"
+  },
+  "license": "MIT",
   "main": "src",
   "keywords": [
     "feathers"
