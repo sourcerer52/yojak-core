@@ -7,9 +7,10 @@
     "max": 50
   },
   "authentication": {
-    "secret": "9f682aa2fa92ef15d3b0d7e7552d73ee16c9a04d4a7dba8422ebde2da01642b26320655a05df6afb51e12a4c1e7443b5255ed3a1f8b7ea81c1c2dc0339a39e5c8e0416665a1aab69790398d8a9697bc8c217e0491fedd60800605504fd8ac34b289a1098043daeebde01e7eb2703272f46ad55924f28b253973ed4bb4de43cda03f54bd1b0942648b573b96bb1b5081248873fd0a7183e20e3fc1c7ce541a839a44356abceba0d22090cf88f4367fd5cf0cf51c86a9a2ede84cf216a796b2739df8f3a957779f5e7cb43c16175d9f282faac13ee07606d38fe9d0100773958ac4651bc800eccc3e43e87c20d5d8f7a5452f40b27275f7d45460b453209de115a",
+    "secret": "83b1015a82b28466723f1f58c72f33c71714cb32177d0380645070681eb693ac54ebe22748fe869f1d8e7aadbb5b4ed8c5fa33cec446ffddc223aa452ac15769b858c82b9856ac8a3a634373c635fa79d6b776ccd9ee808c2408efb8cdaf02b0388b711dbc1843a7d96d306ca09b268f76a335741aa12edeff2ef64a005359ca755301fcf97657dde17ad0a602d756c54dc50b8283b879dcc88074724bbfcb0c04fc00b03881126948e58318de8216e345df89030e16ea774d4fb73010667da5d7328611499cb47cd3c0caf48db433df8f228c056871fc4573db14378432fb4e84d694e29e88ef86d8efe532f5471caac76a895768a08994a8eee796bbe88341",
     "strategies": [
-      "jwt"
+      "jwt",
+      "local"
     ],
     "path": "/authentication",
     "service": "users",
@@ -22,6 +23,11 @@
       "issuer": "feathers",
       "algorithm": "HS256",
       "expiresIn": "1d"
+    },
+    "local": {
+      "entity": "user",
+      "usernameField": "email",
+      "passwordField": "password"
     },
     "google": {
       "clientID": "your google client id",
