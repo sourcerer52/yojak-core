@@ -7,10 +7,9 @@
     "max": 50
   },
   "authentication": {
-    "secret": "9061e302cbb3bb4be642336a91ef564c3c09dbb1a4f09f980703375b52be206c8ec0712d1c6de2a6318b0b622795b6154b9477fad35086f367a0784dcc033ca1387525dc1507e80264d6499098d981df3b18c73c701affb4e772c96d8e148bbda10378868687ddd4d0d27532995429439b8269758dbdb8fd0e1b4a9bfbcd5d2c6c26f8eb3dc248adc9d218a57aa360bd460d2ababc32911fdb7e960b14ea440917d5d1e503af0af0fb678523d5ddaeeee50366557e55ebc9e03b712d8e25d665ff452c62d61ed28f0da69bf4b61a045e7b1bd5ba19f46a218f00839d3e99cfdabaa354ac6d9f45782c2ea2df60a98388bcd7cbca0f466d2ede917a8da40b48d5",
+    "secret": "9f682aa2fa92ef15d3b0d7e7552d73ee16c9a04d4a7dba8422ebde2da01642b26320655a05df6afb51e12a4c1e7443b5255ed3a1f8b7ea81c1c2dc0339a39e5c8e0416665a1aab69790398d8a9697bc8c217e0491fedd60800605504fd8ac34b289a1098043daeebde01e7eb2703272f46ad55924f28b253973ed4bb4de43cda03f54bd1b0942648b573b96bb1b5081248873fd0a7183e20e3fc1c7ce541a839a44356abceba0d22090cf88f4367fd5cf0cf51c86a9a2ede84cf216a796b2739df8f3a957779f5e7cb43c16175d9f282faac13ee07606d38fe9d0100773958ac4651bc800eccc3e43e87c20d5d8f7a5452f40b27275f7d45460b453209de115a",
     "strategies": [
-      "jwt",
-      "local"
+      "jwt"
     ],
     "path": "/authentication",
     "service": "users",
@@ -24,10 +23,19 @@
       "algorithm": "HS256",
       "expiresIn": "1d"
     },
-    "local": {
-      "entity": "user",
-      "usernameField": "email",
-      "passwordField": "password"
+    "google": {
+      "clientID": "your google client id",
+      "clientSecret": "your google client secret",
+      "successRedirect": "/",
+      "scope": [
+        "profile openid email"
+      ]
+    },
+    "cookie": {
+      "enabled": true,
+      "name": "feathers-jwt",
+      "httpOnly": false,
+      "secure": false
     }
   },
   "mongodb": "mongodb://localhost:27017/yojak_core"
