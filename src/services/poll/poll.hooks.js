@@ -1,10 +1,11 @@
 const { authenticate } = require('@feathersjs/authentication').hooks;
 const { required } = require('feathers-hooks-common');
 const { associateCurrentUser } = require('feathers-authentication-hooks');
-
+const { restrictVotes } = require('../../hooks/restrict-votes');
 options = {
   fieldsReq: ['title']
 };
+console.log("here");
 
 module.exports = {
   before: {
@@ -13,7 +14,8 @@ module.exports = {
     get: [],
     create: [
       required(...options.fieldsReq),
-      associateCurrentUser({ idField: '_id', ownerField: 'createdBy' })
+      associateCurrentUser({ idField: '_id', ownerField: 'createdBy' }),
+      restrictVotes()
     ],
     update: [],
     patch: [],
