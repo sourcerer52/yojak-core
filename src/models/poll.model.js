@@ -7,7 +7,7 @@ module.exports = function(app) {
   const { Schema } = mongooseClient;
   const poll = new Schema(
     {
-      title: { type: String, required: true },
+      title: { type: String, required: true, unique: true },
       description: { type: String },
       options: [{ name: String, optionId: Number }],
       votes: [
