@@ -34,6 +34,11 @@
     "start": "node src/",
     "mocha": "mocha test/ --recursive --exit"
   },
+  "_moduleAliases": {
+    "@hooks": "src/hooks",
+    "@models": "src/models",
+    "@services": "src/services"
+  },
   "dependencies": {
     "@feathersjs/authentication": "^2.1.16",
     "@feathersjs/authentication-jwt": "^2.0.10",
@@ -50,6 +55,7 @@
     "feathers-hooks-common": "^4.20.2",
     "feathers-mongoose": "^7.3.0",
     "helmet": "^3.15.0",
+    "module-alias": "^2.1.0",
     "mongodb-core": "^3.1.9",
     "mongoose": "^5.4.8",
     "passport-google-oauth20": "^1.0.0",

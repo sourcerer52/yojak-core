@@ -1,4 +1,5 @@
 /* eslint-disable no-console */
+require('module-alias/register');
 const logger = require('./logger');
 const app = require('./app');
 const port = app.get('port');
@@ -9,5 +10,9 @@ process.on('unhandledRejection', (reason, p) =>
 );
 
 server.on('listening', () =>
-  logger.info('Feathers application started on http://%s:%d', app.get('host'), port)
+  logger.info(
+    'Feathers application started on http://%s:%d',
+    app.get('host'),
+    port
+  )
 );
