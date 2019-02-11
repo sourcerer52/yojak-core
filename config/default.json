@@ -7,11 +7,8 @@
     "max": 50
   },
   "authentication": {
-    "secret": "83b1015a82b28466723f1f58c72f33c71714cb32177d0380645070681eb693ac54ebe22748fe869f1d8e7aadbb5b4ed8c5fa33cec446ffddc223aa452ac15769b858c82b9856ac8a3a634373c635fa79d6b776ccd9ee808c2408efb8cdaf02b0388b711dbc1843a7d96d306ca09b268f76a335741aa12edeff2ef64a005359ca755301fcf97657dde17ad0a602d756c54dc50b8283b879dcc88074724bbfcb0c04fc00b03881126948e58318de8216e345df89030e16ea774d4fb73010667da5d7328611499cb47cd3c0caf48db433df8f228c056871fc4573db14378432fb4e84d694e29e88ef86d8efe532f5471caac76a895768a08994a8eee796bbe88341",
-    "strategies": [
-      "jwt",
-      "local"
-    ],
+    "secret": "cbd40062824a7803fbf814945eec59700a9211bd5697c0b00f2afa5094ea7fb92ed78d2345e4b98c384370eaeb160a5e4cb77a2a8aa722c2b43abf562e2a29a33f22ef045d7f71be4f32eeb2642c63ac8286a4d739826e61ea64c6e2f17d25aedc7d2abb36b9a18e4a8ab5cc6d121dfb52058058a256eaa9ce6364a97175af65829ccb40a30e59509e37d8543170d412bc81506ea039fe8738d09c58e5f862f5e6e5ff178bd98d0ea76726a2ec32a6af75264ff8080c133cb7e404c07dc71e523bde6650a1eb084d3df0037dde8b9dbeff6a58439dcc1d75dca7c022b107331f7f3feecbef93aea9dff0f6c8181f8c124467dca6720556770eba584037f985aa",
+    "strategies": ["jwt", "social-token"],
     "path": "/authentication",
     "service": "users",
     "jwt": {
@@ -24,24 +21,10 @@
       "algorithm": "HS256",
       "expiresIn": "1d"
     },
-    "local": {
-      "entity": "user",
-      "usernameField": "email",
-      "passwordField": "password"
-    },
-    "google": {
-      "clientID": "your google client id",
-      "clientSecret": "your google client secret",
-      "successRedirect": "/",
-      "scope": [
-        "profile openid email"
-      ]
-    },
-    "cookie": {
-      "enabled": true,
-      "name": "feathers-jwt",
-      "httpOnly": false,
-      "secure": false
+    "social-token": {
+      "clientId": "669307955677-60n4cqfaf48pta66l10e3p92h5gripel.apps.googleusercontent.com",
+      "clientSecret": "2VQHxB0VGLRKG3BqLytaCbzB",
+      "redirectURI": "/auth/google/callback"
     }
   },
   "mongodb": "mongodb://localhost:27017/yojak_core"

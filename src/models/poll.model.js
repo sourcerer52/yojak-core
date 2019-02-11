@@ -10,13 +10,6 @@ module.exports = function(app) {
       title: { type: String, required: true, unique: true },
       description: { type: String },
       options: [{ name: String, optionId: Number }],
-      votes: [
-        {
-          userId: String,
-          optionId: Number,
-          createdAt: { type: Date, default: new Date() }
-        }
-      ],
       createdBy: { type: String, required: true }
     },
     {
