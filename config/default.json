@@ -7,8 +7,11 @@
     "max": 50
   },
   "authentication": {
-    "secret": "cbd40062824a7803fbf814945eec59700a9211bd5697c0b00f2afa5094ea7fb92ed78d2345e4b98c384370eaeb160a5e4cb77a2a8aa722c2b43abf562e2a29a33f22ef045d7f71be4f32eeb2642c63ac8286a4d739826e61ea64c6e2f17d25aedc7d2abb36b9a18e4a8ab5cc6d121dfb52058058a256eaa9ce6364a97175af65829ccb40a30e59509e37d8543170d412bc81506ea039fe8738d09c58e5f862f5e6e5ff178bd98d0ea76726a2ec32a6af75264ff8080c133cb7e404c07dc71e523bde6650a1eb084d3df0037dde8b9dbeff6a58439dcc1d75dca7c022b107331f7f3feecbef93aea9dff0f6c8181f8c124467dca6720556770eba584037f985aa",
-    "strategies": ["jwt", "social-token"],
+    "secret": "00a027f7de26faac4eb4f292349c1451329a70e21878161104d054a0d588349857fbb09f520f1a9b6a5aefb42dc910654d12e165bdce787c5b766b2d9abaa8886e646822d3a923ec7a682142a27915d861540c2e0a8720a6cb91bcba935606612c7be43ae08a16a8c7110a9825edf5cc4c1047604f8bf67b20bd116d13d092b329454da8aa2ebc0bdc2aed42ea0e20e6d6f7a89bee4e51a793960a4e34515b567541a90465864b936b60808acb8961c256460bd0c22dd7282d95a1de4cb60138e46d8c098d1506759c7e1e1ef8c7d9d2233e887636005acf651c5446c41872efe67f41de7211e0740da4abe000e4c839c07038529e6c150236c3ca6a2819dd50",
+    "strategies": [
+      "jwt",
+      "local"
+    ],
     "path": "/authentication",
     "service": "users",
     "jwt": {
@@ -21,10 +24,10 @@
       "algorithm": "HS256",
       "expiresIn": "1d"
     },
-    "social-token": {
-      "clientId": "669307955677-60n4cqfaf48pta66l10e3p92h5gripel.apps.googleusercontent.com",
-      "clientSecret": "2VQHxB0VGLRKG3BqLytaCbzB",
-      "redirectURI": "/auth/google/callback"
+    "local": {
+      "entity": "user",
+      "usernameField": "email",
+      "passwordField": "password"
     }
   },
   "mongodb": "mongodb://localhost:27017/yojak_core"

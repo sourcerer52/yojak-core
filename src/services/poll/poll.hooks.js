@@ -1,10 +1,15 @@
 const { authenticate } = require('@feathersjs/authentication').hooks;
-const { required } = require('feathers-hooks-common');
+const {
+  required,
+  preventChanges,
+  skipRemainingHooks
+} = require('feathers-hooks-common');
 const {
   associateCurrentUser,
   restrictToOwner
 } = require('feathers-authentication-hooks');
 const checkDistinctOptions = require('@hooks/check-distinct-options');
+const checkOptionExists = require('@hooks/check-if-option-exists');
 options = {
   fieldsReq: ['title']
 };
@@ -19,9 +24,20 @@ module.exports = {
       associateCurrentUser({ idField: '_id', as: 'createdBy' }),
       checkDistinctOptions()
     ],
-    update: [],
-    patch: [],
-    remove: [restrictToOwner({ idField: 'id', ownerField: 'createdBy' })]
+    update: [
+      checkDistinctOptions(),
+      checkOptionExists(),
+      preventChanges(true, 'createdBy')
+    ],
+    patch: [
+      checkDistinctOptions(),
+      checkOptionExists(),
+      preventChanges(true, 'createdBy')
+    ],
+    remove: [
+      skipRemainingHooks(context => !context.provider),
+      restrictToOwner({ idField: '_id', ownerField: 'createdBy' })
+    ]
   },
 
   after: {
